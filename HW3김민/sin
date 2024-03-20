@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+void main() {
+    float l, m, dt, t, num, anal;
+    //differentiation
+    cout << "f(x)=l*sin(mx)" << endl;
+    cout << "what is your 'l'?";
+    cin >> l;
+    cout << "what is your 'm'";
+    cin >> m;
+    cout << "what is your 't'";
+    cin >> t;
+    cout << "what is your 'dt'";
+    cin >> dt;
+    anal = l * m * cos(m * t);
+    num = (l * (sin(m * (t + dt)) - sin(m * t))) / dt;
+    cout << "num" << num << "anal" << anal << endl;
+    cout << "error=" << abs((num - anal) * 100 / anal) << "%" << endl;
+
+    //integration
+    float a, b;
+    int N;
+    cout << "what is your 'a'";
+    cin >> a;
+    cout << "what is your 'b'";
+    cin >> b;
+    cout << "what is your 'N'";
+    cin >> N;
+    anal = (l / m) * (cos(m * a) - cos(m * b));
+    dt = (b - a) / N;
+    num = 0;
+    for (int i = 0; i < N; i++) {
+        num += sin(a + (dt * i)) * dt;
+    }
+    cout << "num" << num << "anal" << anal << endl;
+    cout << "error=" << (num - anal) * 100 / anal << "%";
+}
