@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+const float PI = 3.141592;
+int main() {
+    float A, B1, B2, t, f0, f0a1, f0a2, f0b1, f0b2, T, dt;
+    A = 100;
+    B1 = 60;
+    B2 = 80;
+    f0a1 = 10;
+    f0a2 = 110;
+    f0b1 = 120;
+    f0b2 = 110;
+    f0 = 1320;
+    T = (1 / f0) * 50;
+    dt = (1 / f0) / 5;
+    ofstream xxx;
+    xxx.open("hw4_sin_cos.txt");
+    if (!xxx) { cout << "can not open file" << endl; return 666; }
+    for (t = 0; t < T; t += dt) {
+        xxx << t << " " << A * cos(2 * PI * f0a1 * t) * cos(2 * PI * f0a2 * t) << " " << B1 * sin(2 * PI * f0b1 * t) + B2 * sin(2 * PI * f0b2 * t) << endl;
+    }
+    xxx.close();
+    return 123;
+}
