@@ -1,16 +1,19 @@
-#pragma once
-class CHealth {
-public:
-	// constructors
-	CHealth() { };
-	CHealth(int a);
-	// member data
-	int age;
-	float cel, faren;
-	// member functions (methods)
-	void cel2faren() {
-		faren = cel * 9.0 / 5.0 + 32.0;
-	}
-	void faren2cel();
-	void measureCel();
-};
+#include <iostream>
+#include "health.h"
+using namespace std;
+//ppt에서 그냥 단순히 이름 만 바꾸라고 해서 해 놓기는 했는데 이건 왜 연습문제로 있는지 잘 모르겠네요..
+int main() {
+	CHealth VIP2(25), * mickey;  // need for CHealth() to be public 
+	mickey = new CHealth(65);
+
+	cout << " VIP2 age:  " << VIP2.age << "mickey age: " << mickey->age << endl;
+
+	VIP2.measureCel();
+	mickey->measureCel();
+
+	cout << " VIP2 cel: " << VIP2.cel << "C  " << " mickey cel: " << mickey->cel << "C \n";
+	cout << " VIP2 temperature as faren  " << VIP2.faren << "F  " << " mickey temperature as faren: " << mickey->faren << "F \n";
+	cout << "  size " << sizeof(CHealth) << "\n";
+	getchar();
+	return 1;
+}
