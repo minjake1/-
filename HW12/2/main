@@ -1,1 +1,26 @@
+#include <iostream>
+#include "Car.h"
+#include "SUV.h"  // 여기 헤더에 car.h가 이미 있는데 --> 이게 실제로 compile 할 때는 문제가 되니깐 한번만 보고 싶은거를 코드로 #pragma once 를 사용 하는거임
+#include "Motor.h"
+using namespace std;
+int main() {
+	// sprint 5
+	Car* myCars[2];
+	myCars[0] = new SUV;
+	myCars[1] = new Motor;
 
+	for (int i = 0; i < 2; i++) myCars[i]->klaxon(1);
+
+
+	cout << myCars[0]-> x << endl;  //public
+
+	cout << myCars[0]->comfortrate() << endl;  //public
+
+	cout << myCars[0]-> y << endl;  //protected
+
+	myCars[1]->discomfortrate();  //protected
+	
+	cout << myCars[1]-> z << endl;  //private
+
+	cout << myCars[1]->safetyrate() << endl;   //private  
+}
