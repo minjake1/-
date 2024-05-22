@@ -1,0 +1,20 @@
+#include <iostream>
+#include "TV.h"
+#include "Oscope.h"
+using namespace std;
+
+int main() {
+	TV tv1;
+	cout << tv1.nSwitch << endl;  // public 멤버변수
+
+	cout << "nSwitch : " << tv1.nSwitch << endl;  // public 멤버 변수
+
+	cout << "turnOn() : ";
+	tv1.turnOn();// public 멤버 함수
+
+	cout << "bright : " << tv1.bright << endl;  // private 멤버 변수
+
+	cout << "turn on Channel 11 : " << tv1.turnChannel(11) << endl;  // private 멤버 함수
+
+	return 123;
+}
